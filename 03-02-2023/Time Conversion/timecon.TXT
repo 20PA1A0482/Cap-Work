@@ -1,0 +1,65 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+class Result {
+
+    /*
+     * Complete the 'timeConversion' function below.
+     *
+     * The function is expected to return a STRING.
+     * The function accepts STRING s as parameter.
+     */
+     public static String timeConversion(String s) {
+        StringBuffer m=new StringBuffer(s);
+        String a=s.substring(s.length()-2,s.length());
+        String b=s.substring(0,2);
+        int c=Integer.valueOf(b);
+        String d="PM";  
+        String e="AM";
+        if(a.equals(d)&&c!=12)
+        {
+           c=c+12;
+        }
+        if(a.equals(e)&&c==12)
+        {
+            c=c-12;
+        }
+        
+        String s1=Integer.toString(c);
+        if (s1.length()==1){
+            s1="0"+s1;
+        }
+        m.replace(0,2,s1);
+        m.delete(s.length()-2,s.length());
+        return m.toString();
+        
+
+    }
+
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        String s = bufferedReader.readLine();
+
+        String result = Result.timeConversion(s);
+
+        bufferedWriter.write(result);
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}

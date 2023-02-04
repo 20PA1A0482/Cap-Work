@@ -1,0 +1,45 @@
+import java.util.ArrayList;
+import java.util.*;
+public class Main
+{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int b=sc.nextInt();
+        int a[]=new int[b];
+        ArrayList<Integer> a1=new ArrayList<>();
+        ArrayList<Integer> a2=new ArrayList<>();
+        for (int i=0;i<b;i++){
+            a[i]=sc.nextInt();
+        }
+        for(int i=0;i<b;i++){
+            if (a[i]>0){
+                a1.add(a[i]);
+            }
+            else{
+                continue;
+            }
+        }
+        for(int j=0;j<b;j++){
+            if (a[j]<0){
+                a2.add(a[j]);
+            }
+            else{
+                continue;
+            }
+        }
+        int n1=a1.size();
+        int n2=a2.size();
+        int n3=b-(n1+n2);
+        double n11=n1;
+        double n12=n2;
+        double n13=n3;
+        double b1=b;
+        double t1=n11/b1;
+        double t2=n12/b1;
+        double t3=n13/b1;
+        System.out.printf("%.6f\n",t1);
+        System.out.printf("%.6f\n",t2);
+        System.out.printf("%.6f\n",t3);
+        
+    }
+}
